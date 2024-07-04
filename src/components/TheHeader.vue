@@ -19,12 +19,14 @@ async function toggleLocales() {
   <div class="the-header">
     <!-- -->
     <TheAlignContainer class="flex justify-between items-center h-full">
-      <RouterLink to="/" :title="t('button.home')" class="mr-12">
+      <AppLink to="/" :title="t('button.home')" class="mr-12">
         LOGO
-      </RouterLink>
+      </AppLink>
       <nav class="the-header-nav">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/hi/miemiemie">{{ t('intro.hi') }}</RouterLink>
+        <AppLink to="/">Home</AppLink>
+        <AppLink :active-match-level="1" to="/hi/miemiemie">{{ t('intro.hi') }}</AppLink>
+        <AppLink :active-match-level="1" to="/demo-scroll">{{ t('header.scroll') }}</AppLink>
+        <AppLink :active-match-level="1" to="/demo-markdown">{{ t('header.markdown') }}</AppLink>
       </nav>
 
       <div class="flex items-center h-full gap-4">
@@ -44,6 +46,10 @@ async function toggleLocales() {
 <style lang="postcss">
 .the-header {
   @apply h-10 border-b border-b-black dark:border-b-white;
+}
+
+.the-header-nav .app-link-active {
+  @apply dark:text-black dark:bg-white text-white bg-black;
 }
 
 
